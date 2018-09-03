@@ -1,0 +1,38 @@
+service: serverlessly
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+
+functions:
+  createRestaurant:
+    handler: handler.createRestaurant
+    events:
+      - http:
+          path: restaurant
+          method: post
+          cors: true
+
+  updateRestaurant:
+    handler: handler.updateRestaurant
+    events:
+      - http:
+          path: restaraunt/{id}
+          method: put
+          cors: true
+
+  deleteRestaurant:
+    handler: handler.deleteRestaurant
+    events:
+      - http:
+          path: restaurant/{id}
+          method: delete
+          cors: true
+
+  restaurant:
+    handler: handler.restaurant
+    events:
+      - http:
+          path: restaurant/{id}
+          method: get
+          cors: true
