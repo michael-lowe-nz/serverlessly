@@ -1,38 +1,36 @@
-service: serverlessly
+service: aws-node-rest-api-mongodb
 
 provider:
   name: aws
-  runtime: nodejs8.10
+  runtime: nodejs6.10
+  region: ap-southeast-2
 
 functions:
-  createRestaurant:
-    handler: handler.createRestaurant
+  createUser:
+    handler: handler.createUser
     events:
       - http:
-          path: restaurant
+          path: user
           method: post
           cors: true
-
-  updateRestaurant:
-    handler: handler.updateRestaurant
+  updateUser:
+    handler: handler.updateUser
     events:
       - http:
-          path: restaraunt/{id}
+          path: user/{id}
           method: put
           cors: true
-
-  deleteRestaurant:
-    handler: handler.deleteRestaurant
+  deleteUser:
+    handler: handler.deleteUser
     events:
       - http:
-          path: restaurant/{id}
+          path: user/{id}
           method: delete
           cors: true
-
-  restaurant:
-    handler: handler.restaurant
+  user:
+    handler: handler.user
     events:
       - http:
-          path: restaurant/{id}
+          path: user/{id}
           method: get
           cors: true

@@ -5,7 +5,7 @@ const UserModel = require('./model/User.js');
 
 mongoose.Promise = Promise;
 
-const mongoString = `mongodb://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@ds141952.mlab.com:41952/serverlessly`;
+const mongoString = `mongodb://${MONGO_USER}:${MONGO_PASSWORD}@ds141952.mlab.com:41952/serverlessly`;
 
 const createErrorResponse = (statusCode, message) => ({
   statusCode: statusCode || 501,
